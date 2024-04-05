@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100  font-sans antialised">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-slate-900 to-slate-700  p-4 text-white flex justify-between">
+        <div>
+            <h1 class="text-3xl font-bold">Safe Delivery</h1>
+        </div>
+        <div>
+            <a href="login" class="text-white hover:underline">Login</a>
+            <a href="signup" class="text-white hover:underline">Signup</a>
+        </div>
+    </nav> 
+    <!-- Main Content form -->
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
+            <form class="space-y-4" action="" method="POST">
+                {% csrf_token %}
+                {% if error_message %}
+                <div align="center" style="color: red;">
+                    <h2 >
+                    {{error_message}}
+                    </h2>
+                </div>
+                {% endif %}
+                <h2 class="text-xl font-semibold">Sign-up</h2>
+                <div>
+                    <label for="username" class="block mb-1 font-medium">Username</label>
+                    <input type="text" id="username" name="username"placeholder="Enter your UserName" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                <div>
+                    <label for="email" class="block mb-1 font-medium">Email</label>
+                    <input type="text" id="email" name="email"placeholder="Enter your Email" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                <div>
+                    <label for="password" class="block mb-1 font-medium">Password</label>
+                    <input type="text" id="password" name="password"placeholder="Enter your Password" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                <div>
+                    <label for="repeatPassword" class="block mb-1 font-medium">Re-Enter Password</label>
+                    <input type="text" id="repeatPassword" name="repeatPassword"placeholder="Repeat you password " class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white p-2 w-full rounded-r-md ">Sign Up</button>
+
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white text-center p-4">
+            <p>&copy; 2024 Safe Delivery <a href=""></a></p>
+        </div>
+    </footer>
+<script>
+
+</script>
+</body>
+</html>
