@@ -12,6 +12,8 @@ import json
 # Assuming you have a Delivery model defined in your models.py file
 from .models import Delivery
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Delivery
 
 
 
@@ -76,7 +78,7 @@ def view_delivery(request):
     return render(request, 'delivery_detail.html')
 def mapinte(request):
     return render(request, 'mapinte.html')
-
+#rendering the delivery map
 def createdelivery(request):
     return render(request, 'createdelivery.html')
 # Create functionality
@@ -93,8 +95,6 @@ def create_delivery(request):
         status = request.POST.get('status')
         sender_address = request.POST.get('sender_address')
         is_paid = request.POST.get('is_paid')
-        
-        # Create a new delivery object
         new_delivery = Delivery.objects.create(
             delivery_address=delivery_address,
             delivery_time=delivery_time,
@@ -114,7 +114,7 @@ def create_delivery(request):
 
 # Read functionality
 def view_delivery(request, delivery_id):
-    # Get the delivery object based on the delivery_id
+    # Get the delivery object based on the delivery_id recent delivery
     current_delivery = Delivery.objects.last()  # Example: Get the latest delivery
     return render(request, 'delivery_detail.html', {'current_delivery': current_delivery})
 
@@ -122,26 +122,11 @@ def view_delivery(request, delivery_id):
 
 # Update functionality
 
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Delivery
 
 
-def update_delivery(request, delivery_id):
+def updatedelivery(request, delivery_id):
     delivery = get_object_or_404(Delivery, pk=delivery_id)
-    if request.method == 'POST':
-        # Update delivery object with form data
-        delivery.delivery_address = request.POST.get('delivery_address')
-        delivery.delivery_time = request.POST.get('delivery_time')
-        delivery.delivery_person_name = request.POST.get('delivery_person_name')
-        delivery.company_name = request.POST.get('company_name')
-        delivery.item_price = request.POST.get('item_price')
-        delivery.status = request.POST.get('status')
-        delivery.sender_address = request.POST.get('sender_address')
-        delivery.is_paid = request.POST.get('is_paid')
-        # Save the updated delivery object
-        delivery.save()
-        return redirect('delivery_detail', delivery_id=delivery_id)
-    return render(request, 'updatedelivery.html', {'delivery': delivery})
+    return render(request, 'updatedelivery.html', {'delivery': delivery, 'user': request.user})
 
 
 
@@ -163,3 +148,13 @@ def list_deliveries(request):
     deliveries = Delivery.objects.all()
     # Pass the list of deliveries to the template to display
     return render(request, 'delivery_list.html', {'deliveries': deliveries})
+
+def blockchainauth(request):
+    return render(request, 'blockchainauth.html')
+
+#blockchain part 
+# views.py
+
+
+
+

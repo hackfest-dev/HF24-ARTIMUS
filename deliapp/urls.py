@@ -16,6 +16,7 @@ urlpatterns=[
     path('mapinte', views.mapinte, name='mapinte'),
 path('delivery/<int:delivery_id>/', views.view_delivery, name='delivery_detail'),
     path('createdelivery/', views.create_delivery, name='create_delivery'),
-    path('updatedelivery/<int:delivery_id>/', views.update_delivery, name='update_delivery'),
+        path('updatedelivery/<int:delivery_id>/', views.updatedelivery, name='update_delivery'),
+        path('blockchainauth', views.blockchainauth, name='blockchainauth'),
 ]
 

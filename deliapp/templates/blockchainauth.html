@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Management</title>
+  <!-- Load web3.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>
+  <script>
+    // Initialize Web3
+    const web3 = new Web3(new Web3.providers.HttpProvider("https://goerli.infura.io/v3/7d92634c045a42dd9be52c41cc045514"));
+
+    // Define the contract ABI (Application Binary Interface)
+    const contractABI = [
+      // Define your contract ABI here
+      // Example:
+      {
+        "constant": false,
+        "inputs": [
+          {"name": "packageid", "type": "int256"},
+          {"name": "initlocation", "type": "string"},
+          {"name": "action", "type": "string"},
+          {"name": "undertaken", "type": "string"}
+        ],
+        "name": "addpackage",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [{"name": "packageid", "type": "int256"}],
+        "name": "getpackage",
+        "outputs": [
+          {"name": "", "type": "string"},
+          {"name": "", "type": "string"},
+          {"name": "", "type": "string"}
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ];
+
+    // Define the contract address
+    const contractAddress = '0xd9145CCE52D386f254917e481eB44e9943F39138';
+
+    // Load the contract
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    // Function to handle form submission for adding a package
+    async function addPackage(event) {
+      event.preventDefault();
+
+      // Get input values from the form
+      const formData = new FormData(event.target);
+      const packageid = formData.get('packageid');
+      const initlocation = formData.get('initlocation');
+      const action = formData.get('action');
+      const undertaken = formData.get('undertaken');
+
+      try {
+        // Send a transaction to the contract to add a package
+        const accounts = await web3.eth.getAccounts();
+        await contract.methods.addpackage(packageid, initlocation, action, undertaken).send({from: accounts[0]});
+        alert('Package Added Successfully!');
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    }
+
+    // Function to handle form submission for getting a package
+    async function getPackage(event) {
+      event.preventDefault();
+
+      // Get input value (packageid) from the form
+      const formData = new FormData(event.target);
+      const packageid = formData.get('packageid');
+
+      try {
+        // Call the contract function to get package details
+        const result = await contract.methods.getpackage(packageid).call();
+        alert(`Package Details:\nInitial Location: ${result[0]}\nAction: ${result[1]}\nUndertaken: ${result[2]}`);
+      } catch (error) {
+        console.error(error);
+        alert('Failed to get package details. Please check the console for error details.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Package Management</h1>
+  
+  <!-- Form to add a package -->
+  <h2>Add Package</h2>
+  <form id="addPackageForm" onsubmit="addPackage(event)">
+    <label for="packageid">Package ID:</label><br>
+    <input type="number" id="packageid" name="packageid" required><br>
+    <label for="initlocation">Initial Location:</label><br>
+    <input type="text" id="initlocation" name="initlocation" required><br>
+    <label for="action">Action:</label><br>
+    <input type="text" id="action" name="action" required><br>
+    <label for="undertaken">Undertaken:</label><br>
+    <input type="text" id="undertaken" name="undertaken" required><br>
+    <button type="submit">Add Package</button>
+  </form>
+
+  <!-- Form to get package details -->
+  <h2>Get Package Details</h2>
+  <form id="getPackageForm" onsubmit="getPackage(event)">
+    <label for="getPackageid">Package ID:</label><br>
+    <input type="number" id="getPackageid" name="packageid" required><br>
+    <button type="submit">Get Package Details</button>
+  </form>
+</body>
+</html>
