@@ -1,1 +1,37 @@
         mapboxgl.accessToken = 'pk.eyJ1Ijoic3JpcmFuamluaWtzIiwiYSI6ImNsdWtvczA2ajBzZmYyaW1qb3JpazU0ZTYifQ.iEBiXxJo8Dj_kMAdf9wtAQ';
+<h1>Calculate Carbon Footprint</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="vehicle_type">Vehicle Type:</label>
+        <select name="vehicle_type" id="vehicle_type">
+            <option value="car">Car</option>
+            <option value="truck">Truck</option>
+            <option value="van">Van</option>
+        </select><br><br>
+        <label for="vehicle_size">Vehicle Size:</label>
+        <select name="vehicle_size" id="vehicle_size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select><br><br>
+        <label for="distance">Distance (in km):</label>
+        <input type="number" name="distance" id="distance" required><br><br>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if carbon_emission %}
+    <h2>Carbon Emission: {{ carbon_emission }} kg</h2>
+    <!-- Suggestions for reducing carbon footprint -->
+    <h2>How to Reduce Your Carbon Footprint:</h2>
+    <ul>
+        <li>Consider carpooling or using public transportation.</li>
+        <li>Opt for walking or cycling for short distances.</li>
+        <li>Choose energy-efficient vehicles or hybrid/electric cars.</li>
+        <li>Reduce unnecessary trips and consolidate errands.</li>
+        <li>Practice eco-friendly driving habits, such as maintaining steady speeds and avoiding rapid acceleration.</li>
+        <li>Offset carbon emissions by supporting renewable energy projects or planting trees.</li>
+    </ul>
+    {% endif %}
+
+
+    

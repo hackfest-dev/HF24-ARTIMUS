@@ -18,5 +18,10 @@ path('delivery/<int:delivery_id>/', views.view_delivery, name='delivery_detail')
     path('createdelivery/', views.create_delivery, name='create_delivery'),
         path('updatedelivery/<int:delivery_id>/', views.updatedelivery, name='update_delivery'),
         path('blockchainauth', views.blockchainauth, name='blockchainauth'),
+        path('carbon_emission', views.carbon_emission, name='carbon_emission'),
+        path('trackorder/', views.fetch_deliveries, name='track_order'),
+        path('delivery/trackorder', views.fetch_deliveries, name='delivery_trackorder'),
+        
+
 ]
 

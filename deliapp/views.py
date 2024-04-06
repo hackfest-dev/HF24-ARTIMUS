@@ -127,6 +127,7 @@ def view_delivery(request, delivery_id):
 def updatedelivery(request, delivery_id):
     delivery = get_object_or_404(Delivery, pk=delivery_id)
     return render(request, 'updatedelivery.html', {'delivery': delivery, 'user': request.user})
+    
 
 
 
@@ -154,7 +155,49 @@ def blockchainauth(request):
 
 #blockchain part 
 # views.py
+# views.py
+from django.shortcuts import render
 
+def calculate_carbon_footprint(vehicle_type, vehicle_size, distance):
+    emissions_factors = {
+        'car': {'small': 120, 'medium': 150, 'large': 180},
+        'truck': {'small': 300, 'medium': 400, 'large': 500},
+        'van': {'small': 200, 'medium': 250, 'large': 300}
+    }
+
+    if vehicle_type not in emissions_factors or vehicle_size not in emissions_factors[vehicle_type]:
+        return None
+
+    emissions_factor = emissions_factors[vehicle_type][vehicle_size]
+    carbon_emission = emissions_factor * distance / 1000  # Convert g to kg
+
+    return carbon_emission
+
+def carbon_emission(request):
+    carbon_emission = None
+    
+    if request.method == 'POST':
+        vehicle_type = request.POST.get('vehicle_type')
+        vehicle_size = request.POST.get('vehicle_size')
+        distance = float(request.POST.get('distance'))
+        
+        carbon_emission = calculate_carbon_footprint(vehicle_type, vehicle_size, distance)
+    
+    return render(request, 'carbon_emission.html', {'carbon_emission': carbon_emission})
+
+
+def fetch_deliveries(request):
+    # Retrieve all delivery instances from the database
+    deliveries = Delivery.objects.all()
+
+    # Debugging: Print deliveries queryset
+    print(deliveries)
+
+    # Pass the deliveries to the template context
+    context = {'deliveries': deliveries}
+
+    # Render the template with the deliveries
+    return render(request, 'trackorder.html', context)
 
 
 
