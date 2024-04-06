@@ -204,3 +204,23 @@ import os
 
 def blockchains(request):
     return render(request, 'blockchains.html')
+def vehicle_maintainance(request):
+    return render(request, 'vehicle.html')
+
+# views.py
+
+from django.shortcuts import render, redirect
+from .forms import VehicleMaintenanceForm
+
+def maintenance_submit(request):
+    if request.method == 'POST':
+        form = VehicleMaintenanceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('maintenance_success')  # Redirect to a success page
+    else:
+        form = VehicleMaintenanceForm()
+    return render(request, 'vehicle.html', {'form': form})
+
+def maintenance_success(request):
+    return render(request, 'vehicle.html')

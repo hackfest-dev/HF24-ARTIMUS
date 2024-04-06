@@ -24,7 +24,9 @@ path('delivery/<int:delivery_id>/', views.view_delivery, name='delivery_detail')
         path('delivery/carbon_emission', views.carbon_emission, name='carbon_emission'),
         path('sos/', views.sos_page, name='sos_page'),
         path('blockchains', views.blockchains, name='blockchains'),
-        
+        path('vehicle',views.vehicle_maintainance, name='vehicle'),
+        path('vehicle/maintenance/', views.maintenance_submit, name='maintenance_submit'),
+    path('vehicle/maintenance/success/', views.maintenance_success, name='maintenance_success'),
 
 ]
 

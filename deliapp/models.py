@@ -14,7 +14,19 @@ class Delivery(models.Model):
 
     def __str__(self):
         return f"Delivery #{self.pk}: {self.delivery_address} - {self.delivery_time}"
-    
+    # models.py
+
+
+
+class VehicleMaintenance(models.Model):
+    vehicle_number = models.CharField(max_length=20)
+    maintenance_date = models.DateField()
+    maintenance_type = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.vehicle_number
+
 
 
 
