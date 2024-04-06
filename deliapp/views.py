@@ -114,13 +114,13 @@ def create_delivery(request):
 
 # Read functionality
 def view_delivery(request, delivery_id):
-    # Get the delivery object based on the delivery_id recent delivery
-    current_delivery = Delivery.objects.last()  # Example: Get the latest delivery
+    
+    current_delivery = Delivery.objects.last() 
     return render(request, 'delivery_detail.html', {'current_delivery': current_delivery})
 
 
 
-# Update functionality
+
 
 
 
@@ -133,17 +133,17 @@ def updatedelivery(request, delivery_id):
 
 # Delete functionality
 def delete_delivery(request, delivery_id):
-    # Get the delivery object based on the delivery_id
+
     delivery = get_object_or_404(Delivery, pk=delivery_id)
     if request.method == 'POST':
-        # Delete the delivery object
+   
         delivery.delete()
-        # Redirect to a page showing remaining deliveries or any other appropriate page
+       
         return redirect('delivery_list')
-    # Pass the delivery object to the template to confirm deletion
+
     return render(request, 'confirm_delete_delivery.html', {'delivery': delivery})
 
-# List all deliveries functionality
+
 def list_deliveries(request):
     # Retrieve all delivery objects
     deliveries = Delivery.objects.all()
@@ -153,9 +153,7 @@ def list_deliveries(request):
 def blockchainauth(request):
     return render(request, 'blockchainauth.html')
 
-#blockchain part 
-# views.py
-# views.py
+
 from django.shortcuts import render
 
 def calculate_carbon_footprint(vehicle_type, vehicle_size, distance):
@@ -187,16 +185,9 @@ def carbon_emission(request):
 
 
 def fetch_deliveries(request):
-    # Retrieve all delivery instances from the database
     deliveries = Delivery.objects.all()
-
-    # Debugging: Print deliveries queryset
     print(deliveries)
-
-    # Pass the deliveries to the template context
     context = {'deliveries': deliveries}
-
-    # Render the template with the deliveries
     return render(request, 'trackorder.html', context)
 
 

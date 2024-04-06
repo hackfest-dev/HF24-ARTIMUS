@@ -1,0 +1,38 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environment
+venv/
+
+# Ignore database files
+db.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore static files
+static/
+
+# Ignore media files
+media/
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+
+# Ignore blockchain main file
+blockchainmain
+
+# Ignore map file
+map
+
+# Ignore truck file
+truck
+Thumbs.db
+

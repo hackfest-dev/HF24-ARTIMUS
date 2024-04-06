@@ -1,30 +1,131 @@
-<!-- blockchainauth.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Package</title>
+    <title>MAIN PAGE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Package</h1>
-    <form id="addPackageForm">
-        <label for="packageid">Package ID:</label><br>
-        <input type="number" id="packageid" name="packageid" required><br>
-        <label for="initlocation">Initial Location:</label><br>
-        <input type="text" id="initlocation" name="initlocation" required><br>
-        <label for="action">Action:</label><br>
-        <input type="text" id="action" name="action" required><br>
-        <label for="undertaken">Undertaken:</label><br>
-        <input type="text" id="undertaken" name="undertaken" required><br>
-        <button type="submit">Add Package</button>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-slate-900 to-slate-700  p-4 text-white flex justify-between">
+        <div>
+            <h1 class="text-3xl font-bold">Eco Ship</h1>
+        </div>
+        <div>
+            <a href="#" class="text-white hover:underline mx-4">Welcome {{ user.username }}</a>
+            <a href="logout" class="text-white hover:underline">signout</a>
+        </div>
+    </nav> 
+    <!-- component -->
+<div class="flex bg-clip-border rounded-xl bg-white text-gray-700 w-full h-[calc(100vh-2rem)]">
+    <div class="w-[240px] min-w-[240px] p-4 bg-gray-100">
+        <div class="mb-2">
+          <h5 class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">Checkout here </h5>
+        </div>
+        <nav class="flex flex-col gap-1 p-2 font-sans text-base font-normal text-gray-700">
+
+    
+
+
+<a href="createdelivery" class="w-full">
+    <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
+        <div class="grid place-items-center mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
+              </svg>
+              
+        </div>
+        Create delivery
+    </div>
+</a>
+<a href="mapinte" class="w-full">
+
+          <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
+            <div class="grid place-items-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
+                  </svg>
+                  
+            </div>
+            Checkout the best route 
+        </div>
+        </a>
+        <a href="blockchainauth" class="w-full">
+
+            <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
+              <div class="grid place-items-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                      <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
+                    </svg>
+                    
+              </div>
+              Add to Blockchain
+          </div>
+          </a>
+        <a href="carbon_emission" class="w-full">
+            <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
+              <div class="grid place-items-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd" d="M13.5 4.938a7 7 0 1 1-9.006 1.737c.202-.257.59-.218.793.039.278.352.594.672.943.954.332.269.786-.049.773-.476a5.977 5.977 0 0 1 .572-2.759 6.026 6.026 0 0 1 2.486-2.665c.247-.14.55-.016.677.238A6.967 6.967 0 0 0 13.5 4.938ZM14 12a4 4 0 0 1-4 4c-1.913 0-3.52-1.398-3.91-3.182-.093-.429.44-.643.814-.413a4.043 4.043 0 0 0 1.601.564c.303.038.531-.24.51-.544a5.975 5.975 0 0 1 1.315-4.192.447.447 0 0 1 .431-.16A4.001 4.001 0 0 1 14 12Z" clip-rule="evenodd" />
+                  </svg>
+              </div>
+              Carbon Emission for this delivery
+              
+          </div>
+          </a>
+        
+        
+            <a href="trackorder" class="w-full">
+                <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
+                    <div class="grid place-items-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+                            <path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    TrackOrder
+                </div>
+            </a>
+        </nav>
+      </div>
+      
+
+    <!-- Main -->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Welcome to Safe Delivery</h2>
+    <h1 class="text-2xl font-bold mb-4">Add Package</h1>
+    <form id="addPackageForm" class="max-w-md mx-auto">
+      <div class="mb-4">
+        <label for="packageid" class="block text-gray-700">Package ID:</label>
+        <input type="number" id="packageid" name="packageid" required
+          class="mt-1 block w-full rounded-md border-gray-700 shadow-lg focus:border-blue-500 focus:ring-blue-500">
+      </div>
+      <div class="mb-4">
+        <label for="initlocation" class="block text-gray-700">Initial Location:</label>
+        <input type="text" id="initlocation" name="initlocation" required
+          class="mt-1 block w-full rounded-md border-gray-700 shadow-lg focus:border-blue-500 focus:ring-blue-500">
+      </div>
+      <div class="mb-4">
+        <label for="action" class="block text-gray-700">Action:</label>
+        <input type="text" id="action" name="action" required
+          class="mt-1 block w-full rounded-md border-gray-700 shadow-lg focus:border-blue-500 focus:ring-blue-500">
+      </div>
+      <div class="mb-4">
+        <label for="undertaken" class="block text-gray-700">Undertaken:</label>
+        <input type="text" id="undertaken" name="undertaken" required
+          class="mt-1 block w-full rounded-md border-gray-700 shadow-lg focus:border-blue-500 focus:ring-blue-500">
+      </div>
+      <button type="submit"
+        class="px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 focus:outline-none focus:bg-blue-800">Add
+        Package</button>
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>
     <script>
         const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
-        const contractAddress = '0xD7ACd2a9FD159E69Bb102A1ca21C9a3e3A5F771B';
+        const contractAddress = '0xd9145CCE52D386f254917e481eB44e9943F39138';
         const contractABI = [
 	{
 		"inputs": [
