@@ -10,8 +10,7 @@ db.sqlite3
 # Ignore log files
 *.log
 
-# Ignore static files
-static/
+
 
 # Ignore media files
 media/
