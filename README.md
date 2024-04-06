@@ -50,6 +50,8 @@ python manage.py runserver
 ## AI generated Maps
 
 ![WhatsApp Image 2024-04-06 at 12 01 52_725bbe90](https://github.com/hackfest-dev/HF24-ARTIMUS/assets/164917350/32e7f4cf-b222-4a35-ac54-89f549b517c1)
+![Screenshot 2024-04-06 134116](https://github.com/hackfest-dev/HF24-ARTIMUS/assets/130485384/9622fa4e-c80f-4e1b-bc12-8bdb90a1aa2e)
+![Screenshot 2024-04-06 134049](https://github.com/hackfest-dev/HF24-ARTIMUS/assets/130485384/5d4cd138-377b-4b91-9a31-c99ac7ae05e1)
 
 
 ## License
@@ -60,8 +62,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 DeliveryApp is maintained by Team No. 9 from Artimus Track Logistics. Special thanks to the Django community and contributors for their invaluable work.
 
-## Support
-
-For support, questions, or suggestions, please contact [Your Email Address].
-
-Thank you for using DeliveryApp! We hope it helps streamline your delivery logistics effectively while also contributing to a greener environment.
