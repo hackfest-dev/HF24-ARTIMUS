@@ -192,3 +192,15 @@ def fetch_deliveries(request):
 
 
 
+
+def sos_page(request):
+    return render(request, 'sos.html')
+from django.http import HttpResponse
+from django.template import loader
+import os
+
+
+
+
+def blockchains(request):
+    return render(request, 'blockchains.html')

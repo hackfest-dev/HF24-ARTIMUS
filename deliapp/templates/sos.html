@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f4f6; /* Gray background */
+        }
+        .sos-container {
+            text-align: center;
+        }
+        .sos-button {
+            background-color: #ff0000; /* Red button */
+            color: #fff;
+            font-size: 24px;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .sos-button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="sos-container">
+        <h1>Press only if in distress</h1>
+        <button class="sos-button" onclick="sendSOS()">SOS</button>
+    </div>
+
+    <script>
+        function sendSOS() {
+            // Function to send SOS messages
+            alert("Sending SOS messages...");
+            
+            // Fetch contacts from a database or predefined list
+            let contacts = ['contact1@example.com', 'contact2@example.com']; // Example contacts
+
+            // Loop through contacts and send messages
+            contacts.forEach(contact => {
+                // Here you would call a messaging API to send messages to each contact
+                // This part is typically handled server-side due to security and privacy concerns
+                // You would need to use an API that supports sending messages, such as Twilio, Nexmo, etc.
+                // Example code for sending messages using a hypothetical messaging API:
+                // sendMessage(contact, "Emergency: Please help!");
+            });
+
+            // Alert user that SOS messages have been sent
+            alert("SOS messages sent!");
+        }
+
+        // Example function to send message using a hypothetical messaging API
+        function sendMessage(contact, message) {
+            // This function would make a request to the messaging API to send a message to the specified contact
+            // You need to replace this with the actual implementation using a messaging API
+            // Example:
+            // fetch('https://messaging-api.com/send', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //         contact: contact,
+            //         message: message
+            //     })
+            // })
+            // .then(response => {
+            //     if (!response.ok) {
+            //         throw new Error('Network response was not ok');
+            //     }
+            //     return response.json();
+            // })
+            // .then(data => {
+            //     console.log('Message sent successfully:', data);
+            // })
+            // .catch(error => {
+            //     console.error('Error sending message:', error);
+            // });
+            console.log(`Message sent to ${contact}: ${message}`);
+        }
+    </script>
+</body>
+</html>

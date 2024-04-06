@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShipBlock</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/metamask.css' %}" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <h1>ShipBlock</h1>
+      <button id="connectButton" class="btn">Connect to Metamask</button>
+    </nav>
+    <div
+      id="connect-to-metamask"
+      class="display-2 d-flex justify-content-center align-items-center min-vh-100"
+    >
+      Connect to Metamask to interact with the smart contract.
+    </div>
+
+    <div id="contract-interaction" class="card container visually-hidden">
+      <div class="card container">
+        <h2>Add Package</h2>
+        <form class="container" id="addPackageForm">
+          <label for="packageid">Package ID</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            id="packageid"
+            name="packageid"
+          />
+          <label for="initloc">Initial Location</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            id="initloc"
+            name="initloc"
+          />
+          <label for="action">Action</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            id="action"
+            name="action"
+          />
+          <label for="undertaken">Undertaken</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            id="undertaken"
+            name="undertaken"
+          />
+          <button id="addPackage" type="submit" class="btn btn-primary">
+            <span
+              class="spinner-grow spinner-grow-sm visually-hidden"
+              aria-hidden="true"
+            ></span>
+            Store
+          </button>
+        </form>
+      </div>
+
+      <div class="card container">
+        <h2>Get Package Details</h2>
+        <form class="container" id="getPackageForm">
+          <label for="packageid">Package ID</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            id="packageid"
+            name="packageid"
+          />
+          <button id="getPackage" type="submit" class="btn btn-primary">
+            <span
+              class="spinner-grow spinner-grow-sm visually-hidden"
+              aria-hidden="true"
+            ></span>
+            Get
+          </button>
+        </form>
+        <div id="packageDetails">
+          <h3>Package Details</h3>
+          <p>Package ID: <span id="packageIdSpan"></span></p>
+          <p>Initial Location: <span id="initLocSpan"></span></p>
+          <p>Action: <span id="actionSpan"></span></p>
+          <p>Undertaken: <span id="undertakenSpan"></span></p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src=" https://cdn.jsdelivr.net/npm/web3@4.7.0/dist/web3.min.js "></script>
+    {% load static %}
+    <script type="module" src="{% static 'js/metamask.js' %}"></script>
+    <script type="module" src="{% static 'js/spinner.js' %}"></script>
+  </body>
+</html>

@@ -22,6 +22,8 @@ path('delivery/<int:delivery_id>/', views.view_delivery, name='delivery_detail')
         path('trackorder/', views.fetch_deliveries, name='track_order'),
         path('delivery/trackorder', views.fetch_deliveries, name='delivery_trackorder'),
         path('delivery/carbon_emission', views.carbon_emission, name='carbon_emission'),
+        path('sos/', views.sos_page, name='sos_page'),
+        path('blockchains', views.blockchains, name='blockchains'),
         
 
 ]

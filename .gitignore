@@ -35,4 +35,4 @@ map
 # Ignore truck file
 truck
 Thumbs.db
-
+.env
