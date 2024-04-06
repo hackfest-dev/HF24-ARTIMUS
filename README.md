@@ -5,9 +5,8 @@
 
 Welcome to DeliveryApp, a Django-based project developed by Team No. 9 from Artimus Track Logistics. This project is designed to revolutionize delivery logistics by integrating advanced features such as AI route optimization, a blockchain ledger for transparent tracking, and an eco-friendly carbon footprint calculator.
 
-## Features
-
-- **AI Route Optimizer**: Utilizes advanced algorithms to find the fastest routes around warehouses, optimizing delivery schedules.
+## Functional Features
+- **AI Route Optimize map provider**: Utilizes advanced algorithms to find the fastest routes around warehouses, optimizing delivery schedules.
 - **Blockchain Ledger**: Implements a blockchain ledger to securely record the status of ships and their deliveries, ensuring transparency and immutability.
 - **Carbon Footprint Calculator**: Estimates the environmental impact of deliveries based on vehicle size and distance covered, promoting eco-friendly practices.
 - **DeliApp Django App**: The project includes the DeliApp Django app, which handles various functionalities related to delivery management.
@@ -47,6 +46,9 @@ python manage.py runserver
 3. Utilize the carbon footprint calculator to estimate the environmental impact of deliveries.
 4. Track the status of ships and deliveries through the blockchain ledger.
 
+## AI generated Maps
+
+![WhatsApp Image 2024-04-06 at 12 01 52_725bbe90](https://github.com/hackfest-dev/HF24-ARTIMUS/assets/164917350/32e7f4cf-b222-4a35-ac54-89f549b517c1)
 
 
 ## License
